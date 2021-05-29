@@ -66,12 +66,10 @@ class Application(tk.Frame):
         while True:
             frame = cv2.cvtColor(cv2.resize(self.frame, (500,500)), cv2.COLOR_BGR2RGB)
             frame =  ImageTk.PhotoImage(image=Image.fromarray(frame))
-            #self.my_img["image"] = self.frame
             self.my_img.imgtk = frame
             self.my_img.configure(image=frame)
             if not self.cam_state: time.sleep(0.5)
             else: time.sleep(0.033)
-        #self.my_img.after(1, self.show_img)
 
     def create_widgets(self):
         self.btn_start = tk.Button(self.master, text="Start", font='sans 12 bold', fg='white', bg='DeepSkyBlue2', command = self.change_cam_state)
