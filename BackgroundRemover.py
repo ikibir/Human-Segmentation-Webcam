@@ -19,7 +19,7 @@ def normPRED(d):
 
 class U2NETPredictor:
     def __init__(self, model_name="u2net_human_seg"):
-        self.device = "cuda"
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
         #self.net = U2NETP(3,1).to(self.device)
         self.net = U2NET(3,1).to(self.device)
         model_dir = os.path.join(os.getcwd(), 'saved_models', model_name, model_name + '.pth')
